@@ -29,6 +29,9 @@ public class MergeWordFiles {
 	}
 		return documentsPath;
 	}
+	
+	//This step is not working
+	
 	public static void merge() throws IOException {
 		List<String> Path = new ArrayList<String>(getFiles());
 		

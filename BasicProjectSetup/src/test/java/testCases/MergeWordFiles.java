@@ -31,7 +31,7 @@ public class MergeWordFiles {
 	}
 	
 	//This step is not working
-	
+	//Edited from Git
 	public static void merge() throws IOException {
 		List<String> Path = new ArrayList<String>(getFiles());
 		

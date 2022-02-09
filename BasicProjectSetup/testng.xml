@@ -1,0 +1,20 @@
+<suite name="Suite">
+  <test name="Add Delete">
+	<classes>
+		<class name="testCases.AddDeleteElements"/>
+	</classes>
+  </test> <!-- Test -->
+
+<test name="Basic Auth">
+	<classes>
+		<class name="testCases.BasicAuthentication"/>
+	</classes>
+  </test> <!-- Test -->
+
+<test name="Broken Images">
+	<classes>
+		<class name="testCases.BrokenImages"/>
+	</classes>
+  </test> <!-- Test -->
+
+</suite> <!-- Suite -->

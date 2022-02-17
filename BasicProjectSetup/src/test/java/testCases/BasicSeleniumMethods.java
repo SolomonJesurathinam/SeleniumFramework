@@ -255,7 +255,26 @@ public class BasicSeleniumMethods {
 			}
 		}
 	
+		Thread.sleep(5000);
 		//Confirm Selenium is checked
+		WebElement checkedBox = driver.findElement(By.xpath("//*[@class=\"example\"][2]/child::div"));
+		if(checkedBox.findElement(By.xpath("./input")).isSelected()) {
+			System.out.println(checkedBox.getText()+" is clicked");
+		}else {
+			System.out.println(checkedBox.getText()+" is NOT clicked");
+		}
+	
+	
+	//Deselect checked box
+	List<WebElement> deSelect = driver.findElements(By.xpath("//*[@class=\"example\"][3]/child::div"));
+	for(WebElement de:deSelect) {
+		if(de.findElement(By.xpath("./input")).isSelected()) {
+			de.findElement(By.xpath("./input")).click();
+			System.out.println(de.getText()+" is clicked");
+		}else {
+			System.out.println(de.getText()+" is NOT clicked");
+		}
 	}
 	
+	}
 }

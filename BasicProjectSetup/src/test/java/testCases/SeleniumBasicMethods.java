@@ -17,7 +17,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class BasicSeleniumMethods {
+public class SeleniumBasicMethods {
 
 	WebDriver driver;
 	@BeforeTest
@@ -276,5 +276,10 @@ public class BasicSeleniumMethods {
 		}
 	}
 	
+	//Select All
+	List<WebElement> selectAll = driver.findElements(By.xpath("//*[@class=\"example\"][4]/child::div/input"));
+	for(WebElement selectAl:selectAll) {
+		selectAl.click();
+	}
 	}
 }

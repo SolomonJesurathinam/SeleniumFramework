@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.BasicSeleniumMethods">
+      <class name="testCases.SeleniumAdvancedMethods">
         <methods>
-          <include name="checkBoxes"/>
+          <include name="downloadFiles"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- testCases.BasicSeleniumMethods -->
+      </class> <!-- testCases.SeleniumAdvancedMethods -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

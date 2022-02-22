@@ -1,20 +1,34 @@
-<suite name="Suite">
-  <test name="Add Delete">
-	<classes>
-		<class name="testCases.AddDeleteElements"/>
-	</classes>
-  </test> <!-- Test -->
+<suite name= "Personal Project" verbose="2" parallel="tests" thread-count="2">
+<listeners>
+<listener class-name="commonfunctions.CustomListeners"></listener>
+</listeners>
+<groups>
+<run>
+<include name="UAT"></include>
+<!-- <exclude></exclude>   supports this func also-->
+<exclude name="Regression"></exclude>
+</run>
+</groups>
+<parameter name="Name" value="Solomon"></parameter>
 
-<test name="Basic Auth">
-	<classes>
-		<class name="testCases.BasicAuthentication"/>
-	</classes>
-  </test> <!-- Test -->
+<test name = "TC001">
+<parameter name="Name" value="Solo"></parameter>
+<classes>
+<class name ="testCases.TC001"></class>
+</classes>
+</test>
 
-<test name="Broken Images">
-	<classes>
-		<class name="testCases.BrokenImages"/>
-	</classes>
-  </test> <!-- Test -->
+<test name = "TC002">
+<classes>
+<class name ="testCases.TC002"></class>
+</classes>
+</test>
 
-</suite> <!-- Suite -->
+<test name = "TC003">
+<classes>
+<class name ="testCases.TC003"></class>
+</classes>
+</test>
+
+
+</suite>

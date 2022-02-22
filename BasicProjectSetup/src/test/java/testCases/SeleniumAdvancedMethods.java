@@ -1,5 +1,10 @@
 package testCases;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.List;
 import java.util.Set;
@@ -185,4 +190,48 @@ public class SeleniumAdvancedMethods {
 		
 	}
 	
+	@Test
+	public void upoloadFiles() throws InterruptedException, AWTException {
+		driver.get("http://leafground.com/pages/upload.html");
+		
+		// getting invalid Argument error driver.findElement(By.name("filename")).click();
+		
+		//Alternative method
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.name("filename"))).click().build().perform();
+		
+		String file = "C:\\Users\\Solo\\Desktop\\test.txt";
+		StringSelection value = new StringSelection(file);
+		
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(value, null);
+		
+		Robot robot =  new Robot();
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+	
+	@Test
+	public void Images() {
+		driver.get("http://leafground.com/pages/Image.html");
+		
+		driver.findElement(By.xpath("//*[@src=\"../images/home.png\"]")).click();
+		Assert.assertEquals("TestLeaf - Selenium Playground", driver.getTitle());
+		driver.get("http://leafground.com/pages/Image.html");
+		
+		String value = driver.findElement(By.xpath("//*[@src=\"../images/abcd.jpg\"]")).getAttribute("naturalWidth");
+		if(value.equals("0")) {
+			System.out.println("Image is broken");
+		}else {
+			System.out.println("Image is not broken");
+		}
+		
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//*[@src=\"../images/keyboard.png\"]"))).click().build().perform();
+		Assert.assertEquals("TestLeaf - Selenium Playground", driver.getTitle());
+	}
 }

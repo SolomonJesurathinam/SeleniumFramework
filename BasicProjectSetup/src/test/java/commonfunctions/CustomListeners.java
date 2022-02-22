@@ -11,6 +11,7 @@ public class CustomListeners extends CommonFunctions implements ITestListener{
 
 	@Override
 	public void onTestStart(ITestResult result) {
+		System.out.println("Started");
 	}
 
 	@Override
@@ -40,6 +41,7 @@ public class CustomListeners extends CommonFunctions implements ITestListener{
 
 	@Override
 	public void onStart(ITestContext context) {
+		System.out.println("Starting ");
 	}
 
 	@Override

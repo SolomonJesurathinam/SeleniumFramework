@@ -8,16 +8,100 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">58</td><td></td><td></td></tr>
+<tr><th colspan="8">Retrying</th></tr>
+<tr><td><a href="#t0">Retry</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">8</td><td class="num attn">2</td><td class="num">67</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">testCases.DataProviderExample</td><td><a href="#m0">example</a></td><td rowspan="6">1645457554598</td><td rowspan="6">6</td></tr><tr class="passedeven"><td><a href="#m1">example</a></td></tr><tr class="passedeven"><td><a href="#m2">example</a></td></tr><tr class="passedeven"><td><a href="#m3">example</a></td></tr><tr class="passedeven"><td><a href="#m4">example</a></td></tr><tr class="passedeven"><td><a href="#m5">example</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Retrying</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Retry &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">testCases.SeleniumInterview</td><td><a href="#m0">failedretry1</a></td><td rowspan="1">1645630702063</td><td rowspan="1">0</td></tr><tr class="failedeven"><td><a href="#m1">failedretry2</a></td><td rowspan="1">1645630702075</td><td rowspan="1">2</td></tr><tr><th colspan="4">Retry &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="8">testCases.SeleniumInterview</td><td><a href="#m2">failedretry1</a></td><td rowspan="4">1645630702058</td><td rowspan="4">1</td></tr><tr class="retriedeven"><td><a href="#m3">failedretry1</a></td></tr><tr class="retriedeven"><td><a href="#m4">failedretry1</a></td></tr><tr class="retriedeven"><td><a href="#m5">failedretry1</a></td></tr><tr class="retriedeven"><td><a href="#m6">failedretry2</a></td><td rowspan="4">1645630702068</td><td rowspan="4">1</td></tr><tr class="retriedeven"><td><a href="#m7">failedretry2</a></td></tr><tr class="retriedeven"><td><a href="#m8">failedretry2</a></td></tr><tr class="retriedeven"><td><a href="#m9">failedretry2</a></td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input1</td><td>output1</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input6</td><td>output6</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input4</td><td>output4</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input3</td><td>output3</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input2</td><td>output2</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">testCases.DataProviderExample#example</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>input5</td><td>output5</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Retry</h2><h3 id="m0">testCases.SeleniumInterview#failedretry1</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry1(SeleniumInterview.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testCases.SeleniumInterview#failedretry2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry2(SeleniumInterview.java:211)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testCases.SeleniumInterview#failedretry1</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry1(SeleniumInterview.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testCases.SeleniumInterview#failedretry1</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry1(SeleniumInterview.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testCases.SeleniumInterview#failedretry1</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry1(SeleniumInterview.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">testCases.SeleniumInterview#failedretry1</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry1(SeleniumInterview.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">testCases.SeleniumInterview#failedretry2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry2(SeleniumInterview.java:211)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">testCases.SeleniumInterview#failedretry2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry2(SeleniumInterview.java:211)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">testCases.SeleniumInterview#failedretry2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry2(SeleniumInterview.java:211)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">testCases.SeleniumInterview#failedretry2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at junit.framework.Assert.fail(Assert.java:50)
+	at junit.framework.Assert.failNotEquals(Assert.java:287)
+	at junit.framework.Assert.assertEquals(Assert.java:67)
+	at junit.framework.Assert.assertEquals(Assert.java:147)
+	at junit.framework.Assert.assertEquals(Assert.java:153)
+	at testCases.SeleniumInterview.failedretry2(SeleniumInterview.java:211)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

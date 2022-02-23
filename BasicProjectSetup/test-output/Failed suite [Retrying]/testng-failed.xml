@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Retrying]">
-  <listeners>
-    <listener class-name="commonfunctions.TransformerListener"/>
-  </listeners>
-  <test thread-count="5" name="Retry(failed)">
+<suite name="Failed suite [Failed suite [Retrying]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Retry(failed)(failed)">
     <classes>
       <class name="testCases.SeleniumInterview">
         <methods>
@@ -13,5 +10,5 @@
         </methods>
       </class> <!-- testCases.SeleniumInterview -->
     </classes>
-  </test> <!-- Retry(failed) -->
-</suite> <!-- Failed suite [Retrying] -->
+  </test> <!-- Retry(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Retrying]] -->

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.DataProviderExample">
+      <class name="testCases.ApachePoiExcelReading">
         <methods>
-          <include name="example"/>
+          <include name="dataRead"/>
         </methods>
-      </class> <!-- testCases.DataProviderExample -->
+      </class> <!-- testCases.ApachePoiExcelReading -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

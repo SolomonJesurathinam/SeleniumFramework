@@ -1,0 +1,10 @@
+<suite name = "Retrying">
+<listeners>
+<listener class-name = "commonfunctions.TransformerListener"></listener>
+</listeners>
+<test name="Retry">
+<classes>
+<class name = "testCases.SeleniumInterview"></class>
+</classes>
+</test>
+</suite>

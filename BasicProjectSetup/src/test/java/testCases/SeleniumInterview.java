@@ -8,6 +8,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 
 import javax.imageio.ImageIO;
@@ -25,25 +28,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import org.testng.internal.thread.ThreadTimeoutException;
 
-import commonfunctions.RetryListener;
-import junit.framework.Assert;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 
 
 public class SeleniumInterview {
-
 	WebDriver driver;
+	@BeforeMethod
+	public void test1() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	
+	
 	/*Types of Wait - Implicit, Explicit, Fluent
 	 * 1. Implicit Wait - Implicit wait will check for the element is present in DOM.. if yes it will perform the task
 	 * Default time is 'Zero' seconds.. 500 ms polling rate
-	 * Downside - it will not check if the element is visible/interactable.. Cant give any explicit copnditions
+	 * Downside - it will not check if the element is visible/interactable.. Cant give any explicit conditions
 	 * 
 	 * 2. Explicit Wait - Can give conditions explicitly to wait until the conditions are met.
 	 * conditions are given specifically to a webelement and not to entire code. 500 ms polling rate
@@ -210,4 +226,175 @@ public class SeleniumInterview {
 	public void failedretry2() {
 		Assert.assertEquals(false, true);
 	}
+	
+	/*Scrolling
+	 * 1. Using JavascripExecutor
+	 * 2. Robot class
+	 */
+	@Test
+	public void scrolling() throws InterruptedException, AWTException {
+		driver.get("https:google.com");
+		driver.switchTo().activeElement().sendKeys("test \n");
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		//scroll down and up
+		jse.executeScript("window.scroll(0,500)", "");
+		Thread.sleep(3000);
+		jse.executeScript("window.scrollBy(0,-500)", ""); //scroll up (scrollTo, scrollBy, scroll)
+		Thread.sleep(3000);
+		
+		//scroll to bottom of page
+		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)", "");
+		Thread.sleep(3000);
+		
+		//scroll to top
+		jse.executeScript("window.scroll(0,0)", "");
+		Thread.sleep(3000);
+		
+		//scroll to Element
+		WebElement related = driver.findElement(By.xpath("//*[text()='See results about']"));
+		jse.executeScript("arguments[0].scrollIntoView(true);", related);
+		Thread.sleep(2000);
+		
+		//Using Robot class
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		Thread.sleep(3000);
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
+		robot.keyRelease(KeyEvent.VK_PAGE_UP);
+	}
+	
+	/*Text is underlined or Not (text-decoration css property)
+	 */
+	@Test
+	public void underlined() {
+		driver.get("https:google.com");
+		WebElement ele = driver.findElement(By.xpath("//a[text()=\"தமிழ்\"]"));
+		Actions action = new Actions(driver);
+		
+		String beforeHovering = ele.getCssValue("text-decoration");
+		action.moveToElement(ele).build().perform();
+		String afterHovering = ele.getCssValue("text-decoration");
+		
+		System.out.println(beforeHovering);
+		System.out.println(afterHovering);
+		if(afterHovering.contains("underline")) {
+			System.out.println(ele.getText() +" is underlined");
+		}
+	}
+	
+	/*Assert vs Verify
+	 * Assert conditions doesn't matches the test execution fails (Hard Assertion)
+	 * Verify if the condition/verification fail the test will not stop (Soft Assertion)
+	 */
+	public void assertVerify(){
+		//Hard Assertion
+		Assert.assertEquals(false, true);
+		//Soft Assert
+		SoftAssert softAssert = new SoftAssert();
+		softAssert.assertEquals(false, true);
+	}
+	
+	/*Send keys without using 'send keys method'
+	 * 1. Javascript Executor -- "document.getElementsByName('q')[0].value='Solomon' //  arguments[0].value='' Webelement
+	 * 2. Robot class.. switch to active element and type keys
+	 */
+	@Test
+	public void sendkeys() throws InterruptedException, AWTException {
+		driver.get("https:google.com");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("document.getElementsByName('q')[0].value='Solomon'", ""); //Method 1
+		Thread.sleep(3000);
+		WebElement search = driver.findElement(By.name("q"));
+		jse.executeScript("arguments[0].value='Solo'", search); //Method2
+		Thread.sleep(2000);
+		
+		Robot robot = new Robot();
+		driver.switchTo().activeElement();
+		robot.keyPress(KeyEvent.VK_S);
+		robot.keyRelease(KeyEvent.VK_S);  //Method 3
+	}
+	
+	/*Click all check boxes in a page
+	 * Identify elements with input type 'Checkbox'.. then add all in a list and loop and click them
+	 */
+	
+	/*Run a Test multiple times
+	 * Invocation count attribute passed as parameter in @Test
+	 */
+	
+	/*TimeoutExample
+	 * pass timeOut as an attribute in @Test method.. this will wait for that time, if the test method takes long time the test case will fail.
+	 * Timeout Exception should come.
+	 */
+	
+	/*Exception Handling in TestNG
+	 * expectedExceptions attribute in @Test
+	 * This will not execute the next steps in test case// so if needed we need to use Try Catch
+	 */
+	@Test(timeOut=1000, expectedExceptions = ThreadTimeoutException.class)
+	public void exception() throws InterruptedException {
+		Thread.sleep(2000);
+		System.out.println("I skipped exception");
+	}
+	
+	/*How to skip exception using try catch 
+	 */
+	@Test
+	public void skipException() {
+		try {
+			Assert.fail();
+		}catch(AssertionError e){
+			//throw e
+			System.out.println(e);
+		}
+		System.out.println("I skipped exception");
+	}
+	
+	/*Always run
+	 * pass always run attribute.. This will run even if the depends on method for the test is failed	
+	 */
+	
+	/*How to pass url without Get and Navigate
+	 * Using JAvascript Executor
+	 */
+	@Test
+	public void url() {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;  
+		jse.executeScript("window.location='https:google.com'", "");
+	}
+	
+	/*Handling Pagination
+	 */
+	@Test
+	public void pagination() {
+		driver.get("https://mdbootstrap.com/docs/b4/jquery/tables/pagination/");
+		
+		List<String> finalNamesList = new ArrayList<String>();
+		List<WebElement> NameslistPages;
+		WebElement next;
+		int paginationSize = driver.findElements(By.xpath("//div[@id='dtBasicExample_paginate']//li")).size();
+		
+		
+		for(int i=0;i<paginationSize; i++) {
+			NameslistPages =  driver.findElements(By.xpath("//td[@class='sorting_1']"));
+			for(WebElement namesWeb:NameslistPages) {
+				finalNamesList.add(namesWeb.getText());
+			}
+			next=driver.findElement(By.id("dtBasicExample_next"));
+			String verify = next.getAttribute("class");
+			if(!verify.contains("disabled")) {
+				next.click();
+			}else {
+				break;
+			}
+		}
+		
+		System.out.println(finalNamesList.toString());
+		for(String fi:finalNamesList) {
+			System.out.println(fi);
+		}
+	}
 }
+

@@ -17,7 +17,7 @@ public class xPathLearning {
 	 */
 	
 	
-	//Syntax - //Element[@Attribute='Value']
+	//Syntax - //Element[@Attribute='Value test']
 	
 	public static void main(String[] args) {
 		
